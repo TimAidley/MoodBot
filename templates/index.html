@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mood Tracker</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            max-width: 600px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        h1 {
+            text-align: center;
+        }
+        .mood-buttons {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin-bottom: 20px;
+        }
+        .mood-button {
+            padding: 15px 20px;
+            font-size: 16px;
+            border: none;
+            border-radius: 5px;
+            background-color: #4CAF50;
+            color: white;
+            cursor: pointer;
+            flex-grow: 1;
+            text-align: center;
+        }
+        .mood-button:hover {
+            background-color: #45a049;
+        }
+        .form-group {
+            margin-bottom: 15px;
+        }
+        .form-group input {
+            width: 70%;
+            padding: 8px;
+        }
+        .form-group button {
+            padding: 8px 15px;
+            background-color: #2196F3;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+        .nav-links {
+            display: flex;
+            justify-content: center;
+            margin-top: 20px;
+        }
+        .nav-links a {
+            margin: 0 10px;
+            color: #2196F3;
+            text-decoration: none;
+        }
+    </style>
+</head>
+<body>
+    <h1>How is your son feeling?</h1>
+    
+    <div class="mood-buttons">
+        {% for mood in moods %}
+        <form action="/record" method="post" style="flex-grow: 1; flex-basis: 30%;">
+            <input type="hidden" name="mood" value="{{ mood }}">
+            <button type="submit" class="mood-button">{{ mood|capitalize }}</button>
+        </form>
+        {% endfor %}
+    </div>
+    
+    <div class="form-group">
+        <form action="/add_mood" method="post">
+            <input type="text" name="new_mood" placeholder="Add a new mood...">
+            <button type="submit">Add</button>
+        </form>
+    </div>
+    
+    <div class="nav-links">
+        <a href="/history">View History</a>
+        <a href="/export">Export Data</a>
+    </div>
+</body>
+</html>
