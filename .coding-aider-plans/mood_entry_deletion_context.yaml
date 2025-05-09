@@ -4,3 +4,5 @@ files:
   readOnly: false
 - path: "templates/history.html"
   readOnly: false
+- path: ".coding-aider-plans/mood_entry_completion.md"
+  readOnly: false
