@@ -4,7 +4,7 @@ services:
   mood-tracker:
     build: .
     ports:
-      - "5000:5000"
+      - "6384:6384"
     volumes:
       - mood-data:/app/instance
     environment:
