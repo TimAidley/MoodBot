@@ -10,6 +10,9 @@ app = Flask(__name__)
 os.makedirs(app.instance_path, exist_ok=True)
 DB_PATH = os.path.join(app.instance_path, 'moods.db')
 
+# Get subject name from environment variable with default fallback
+SUBJECT_NAME = os.environ.get('SUBJECT_NAME', 'the subject')
+
 def init_db():
     conn = sqlite3.connect(DB_PATH)
     cursor = conn.cursor()
@@ -42,7 +45,7 @@ def index():
     all_moods = list(set(existing_moods + default_moods))
     all_moods.sort()
     
-    return render_template('index.html', moods=all_moods)
+    return render_template('index.html', moods=all_moods, subject_name=SUBJECT_NAME)
 
 @app.route('/record', methods=['POST'])
 def record_mood():
@@ -67,7 +70,7 @@ def history():
     moods = [dict(row) for row in cursor.fetchall()]
     conn.close()
     
-    return render_template('history.html', moods=moods)
+    return render_template('history.html', moods=moods, subject_name=SUBJECT_NAME)
 
 @app.route('/export')
 def export_data():

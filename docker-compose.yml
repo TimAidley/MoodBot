@@ -7,6 +7,8 @@ services:
       - "5000:5000"
     volumes:
       - mood-data:/app/instance
+    environment:
+      - SUBJECT_NAME=Gabriel
     restart: unless-stopped
 
 volumes:

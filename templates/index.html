@@ -62,8 +62,8 @@
     </style>
 </head>
 <body>
-    <h1>How is your son feeling?</h1>
-    
+    <h1>How is {{ subject_name }} feeling?</h1>
+
     <div class="mood-buttons">
         {% for mood in moods %}
         <form action="/record" method="post" style="flex-grow: 1; flex-basis: 30%;">
