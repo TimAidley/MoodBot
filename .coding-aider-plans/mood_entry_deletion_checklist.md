@@ -11,10 +11,10 @@
 - [x] Implement confirmation dialog before deletion
 
 ## Testing
-- [ ] Test deletion of entries from the history page
-- [ ] Verify that only the selected entry is deleted
-- [ ] Confirm that the user is redirected back to the history page after deletion
-- [ ] Test the confirmation dialog to ensure it prevents accidental deletions
+- [x] Test deletion of entries from the history page
+- [x] Verify that only the selected entry is deleted
+- [x] Confirm that the user is redirected back to the history page after deletion
+- [x] Test the confirmation dialog to ensure it prevents accidental deletions
 
 ## Documentation
 - [x] Update any relevant documentation to include the new delete functionality
