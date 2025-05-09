@@ -17,4 +17,4 @@
 - [ ] Test the confirmation dialog to ensure it prevents accidental deletions
 
 ## Documentation
-- [ ] Update any relevant documentation to include the new delete functionality
+- [x] Update any relevant documentation to include the new delete functionality

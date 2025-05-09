@@ -13,10 +13,10 @@ Currently, the mood tracker application allows users to record their moods and v
 4. Redirect users back to the history page after deletion
 
 ## Implementation Details
-1. Create a new route in app.py to handle the deletion of mood entries by ID
-2. Ensure the history route includes the entry ID in the data passed to the template
-3. Update the history.html template to include a delete button for each entry
-4. Add a confirmation dialog before deletion to prevent accidental deletions
+1. ✅ Created a new route in app.py to handle the deletion of mood entries by ID
+2. ✅ Ensured the history route includes the entry ID in the data passed to the template
+3. ✅ Updated the history.html template to include a delete button for each entry
+4. ✅ Added a confirmation dialog before deletion to prevent accidental deletions
 
 ## Additional Notes and Constraints
 - The deletion should be permanent and not recoverable
