@@ -1,0 +1,6 @@
+---
+files:
+- path: "app.py"
+  readOnly: false
+- path: "templates/history.html"
+  readOnly: false
