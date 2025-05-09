@@ -63,7 +63,7 @@ def history():
     conn = sqlite3.connect(DB_PATH)
     conn.row_factory = sqlite3.Row
     cursor = conn.cursor()
-    cursor.execute("SELECT mood, timestamp FROM moods ORDER BY timestamp DESC LIMIT 100")
+    cursor.execute("SELECT id, mood, timestamp FROM moods ORDER BY timestamp DESC LIMIT 100")
     moods = [dict(row) for row in cursor.fetchall()]
     conn.close()
     
@@ -103,6 +103,16 @@ def add_mood():
         conn.close()
     
     return redirect(url_for('index'))
+
+@app.route('/delete/<int:entry_id>', methods=['POST'])
+def delete_entry(entry_id):
+    conn = sqlite3.connect(DB_PATH)
+    cursor = conn.cursor()
+    cursor.execute("DELETE FROM moods WHERE id = ?", (entry_id,))
+    conn.commit()
+    conn.close()
+    
+    return redirect(url_for('history'))
 
 if __name__ == '__main__':
     app.run(host='0.0.0.0', port=5000, debug=True)
